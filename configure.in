@@ -8692,7 +8692,7 @@ MOZ_ARG_WITH_STRING(macbundlename-prefix,
                           Prefix for MOZ_MACBUNDLE_NAME],
 [ MOZ_MACBUNDLE_NAME_PREFIX="$withval"])
 
-MOZ_MACBUNDLE_NAME=`echo $MOZ_APP_DISPLAYNAME | tr -d ' '`
+MOZ_MACBUNDLE_NAME=`echo $MOZ_APP_DISPLAYNAME | tr -d ' ' | tr '[A-Z]' '[a-z]'`
 if test "$MOZ_MACBUNDLE_NAME_PREFIX"; then
   MOZ_MACBUNDLE_NAME="${MOZ_MACBUNDLE_NAME_PREFIX}${MOZ_MACBUNDLE_NAME}"
 fi
@@ -8705,7 +8705,7 @@ fi
 AC_SUBST(MOZ_MACBUNDLE_NAME)
 
 dnl Mac bundle identifier (based on MOZ_APP_DISPLAYNAME)
-MOZ_MACBUNDLE_ID=`echo $MOZ_APP_DISPLAYNAME | tr '[A-Z]' '[a-z]'`
+MOZ_MACBUNDLE_ID=`echo $MOZ_APP_DISPLAYNAME | tr -d ' ' | tr '[A-Z]' '[a-z]'`
 MOZ_MACBUNDLE_ID=${MOZ_DISTRIBUTION_ID}.${MOZ_MACBUNDLE_ID}
 if test "$MOZ_DEBUG"; then
   MOZ_MACBUNDLE_ID=${MOZ_MACBUNDLE_ID}debug
