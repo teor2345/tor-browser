@@ -103,5 +103,5 @@ tools repackage:: $(PROGRAM)
 	rsync -aL $(PROGRAM) $(dist_dest)/Contents/MacOS
 	cp -RL $(DIST)/branding/firefox.icns $(dist_dest)/Contents/Resources/firefox.icns
 	cp -RL $(DIST)/branding/document.icns $(dist_dest)/Contents/Resources/document.icns
-	printf APPLMOZB > $(dist_dest)/Contents/PkgInfo
+	printf APPLMOZT > $(dist_dest)/Contents/PkgInfo
 endif
